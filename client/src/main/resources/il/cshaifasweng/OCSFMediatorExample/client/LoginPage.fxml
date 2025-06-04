@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="il.cshaifasweng.OCSFMediatorExample.client.LoginPage">
+    <children>
+        <AnchorPane prefHeight="650.0" prefWidth="180.0" style="-fx-background-color: #f6d9d9;">
+            <children>
+                <ImageView fitHeight="110.0" fitWidth="118.0" layoutX="31.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/cinema.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="53.0" layoutY="125.0" text="Welcome">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="homePageBtn" layoutX="19.0" layoutY="200.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="47.0" prefWidth="142.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Home Page">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="changeHostBtn" layoutX="41.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchToHostPage" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-background-radius: 10;" text="Change Host IP" underline="true" />
+            </children>
+        </AnchorPane>
+    <Button fx:id="loginBtn" layoutX="349.0" layoutY="452.0" mnemonicParsing="false" onAction="#requestEmployeeFromServer" prefHeight="40.0" prefWidth="348.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Login">
+        <font>
+            <Font size="23.0" />
+        </font>
+    </Button>
+    <TextField fx:id="userNameText" layoutX="349.0" layoutY="297.0" prefHeight="40.0" prefWidth="348.0" promptText="User Name">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+    <PasswordField fx:id="passwordText" layoutX="349.0" layoutY="378.0" prefHeight="40.0" prefWidth="348.0" promptText="Password">
+         <font>
+            <Font size="18.0" />
+         </font></PasswordField>
+    <ImageView fitHeight="160.0" fitWidth="164.0" layoutX="445.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@images/login white.png" />
+        </image>
+    </ImageView>
+    <Label layoutX="349.0" layoutY="266.0" prefHeight="30.0" prefWidth="118.0" text="User Name" textFill="#f6d9d9">
+        <font>
+            <Font size="20.0" />
+        </font>
+    </Label>
+    <Label layoutX="349.0" layoutY="347.0" text="Password" textFill="#f6d9d9">
+        <font>
+            <Font size="20.0" />
+        </font>
+    </Label>
+</children>
+</AnchorPane>

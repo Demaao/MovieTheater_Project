@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="il.cshaifasweng.OCSFMediatorExample.client.ContentManagerPage">
+   <children>
+      <AnchorPane prefHeight="650.0" prefWidth="180.0" style="-fx-background-color: #f6d9d9;">
+         <children>
+            <ImageView fitHeight="110.0" fitWidth="118.0" layoutX="31.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/cinema.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="53.0" layoutY="125.0" text="Welcome">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="homePageBtn" layoutX="19.0" layoutY="200.0" mnemonicParsing="false" onAction="#switchToContentManagerPage" prefHeight="47.0" prefWidth="142.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Home Page">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                     <image>
+                        <Image url="@images/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="changeHostBtn" layoutX="41.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchToHostPage" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-background-radius: 10;" text="Change Host IP" underline="true" />
+            <Button fx:id="logOutBtn" layoutX="23.0" layoutY="450.0" mnemonicParsing="false" onAction="#requestLogoutFromServer" prefHeight="47.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Log Out">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                     <image>
+                        <Image url="@images/logOut.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label layoutX="225.0" layoutY="159.0" text="Welcome Back!" textFill="#f6d9d9">
+         <font>
+            <Font name="Britannic Bold" size="40.0" />
+         </font>
+      </Label>
+      <Button fx:id="addMovieBtn" layoutX="11.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchToAddMoviePage" prefHeight="47.0" prefWidth="152.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Add Movie">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@images/plus.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="removeMovieBtn" layoutX="10.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToRemoveMoviePage" prefHeight="47.0" prefWidth="170.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text=" Remove Movie">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@images/minus.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="editScreenigBtn" layoutX="10.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToEditScreeningPage" prefHeight="47.0" prefWidth="170.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text=" Edit Screening">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@images/edit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="editPricesBtn" layoutX="20.0" layoutY="400.0" mnemonicParsing="false" onAction="#switchToEditPricesPage" prefHeight="47.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="  Edit Prices">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@images/price sticker.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="bigAddMovieBtn" layoutX="300.0" layoutY="275.0" mnemonicParsing="false" onAction="#switchToAddMoviePage" prefHeight="100.0" prefWidth="202.0" style="-fx-background-color: #d5a6bd; -fx-text-fill: black; -fx-font-size: 20; -fx-cursor: hand; -fx-background-radius: 10;" text="  Add Movie" textAlignment="RIGHT">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="49.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@images/plus.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="bigRemoveMovieBtn" layoutX="573.0" layoutY="275.0" mnemonicParsing="false" onAction="#switchToRemoveMoviePage" prefHeight="100.0" prefWidth="202.0" style="-fx-background-color: #a64d79; -fx-text-fill: black; -fx-font-size: 20; -fx-cursor: hand; -fx-background-radius: 10;" text="Remove Movie" textAlignment="RIGHT">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@images/minus.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="bigEditScreenigBtn" layoutX="300.0" layoutY="426.0" mnemonicParsing="false" onAction="#switchToEditScreeningPage" prefHeight="100.0" prefWidth="202.0" style="-fx-background-color: #c27ba0; -fx-text-fill: black; -fx-cursor: hand; -fx-font-size: 20; -fx-background-radius: 10;" text="Edit Screening" textAlignment="RIGHT">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="52.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@images/edit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="bigEditPricesBtn" layoutX="573.0" layoutY="426.0" mnemonicParsing="false" onAction="#switchToEditPricesPage" prefHeight="100.0" prefWidth="202.0" style="-fx-background-color: #ead1dc; -fx-text-fill: black; -fx-cursor: hand; -fx-font-size: 20; -fx-background-radius: 10;" text="  Edit Prices" textAlignment="RIGHT">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="47.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@images/price sticker.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="contentManagerNameLabel" layoutX="225.0" layoutY="97.0" text="Manager Name" textFill="#f6d9d9">
+         <font>
+            <Font name="Britannic Bold" size="40.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

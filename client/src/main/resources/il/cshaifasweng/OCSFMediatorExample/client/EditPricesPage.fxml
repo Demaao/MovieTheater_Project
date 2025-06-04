@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="il.cshaifasweng.OCSFMediatorExample.client.EditPricesPage">
+    <children>
+        <AnchorPane prefHeight="650.0" prefWidth="180.0" style="-fx-background-color: #f6d9d9;">
+            <children>
+                <ImageView fitHeight="110.0" fitWidth="118.0" layoutX="31.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/cinema.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="53.0" layoutY="125.0" text="Welcome">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="homePageBtn" layoutX="19.0" layoutY="200.0" mnemonicParsing="false" onAction="#switchToContentManagerPage" prefHeight="47.0" prefWidth="142.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Home Page">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="changeHostBtn" layoutX="41.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchToHostPage" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-background-radius: 10;" text="Change Host IP" underline="true" />
+                <Button fx:id="logOutBtn" layoutX="23.0" layoutY="450.0" mnemonicParsing="false" onAction="#requestLogoutFromServer" prefHeight="47.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Log Out">
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/logOut.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </AnchorPane>
+        <Button fx:id="addMovieBtn" layoutX="11.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchToAddMoviePage" prefHeight="47.0" prefWidth="152.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Add Movie">
+            <font>
+                <Font size="15.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                    <image>
+                        <Image url="@images/plus.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="removeMovieBtn" layoutX="10.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToRemoveMoviePage" prefHeight="47.0" prefWidth="170.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text=" Remove Movie">
+            <font>
+                <Font size="15.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                    <image>
+                        <Image url="@images/minus.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="editScreenigBtn" layoutX="10.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToEditScreeningPage" prefHeight="47.0" prefWidth="170.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text=" Edit Screening">
+            <font>
+                <Font size="15.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                    <image>
+                        <Image url="@images/edit.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="editPricesBtn" layoutX="20.0" layoutY="400.0" mnemonicParsing="false" onAction="#switchToEditPricesPage" prefHeight="47.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="  Edit Prices">
+            <font>
+                <Font size="15.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="30.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                    <image>
+                        <Image url="@images/price sticker.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="editTicketPriceBtn" layoutX="531.0" layoutY="170.0" mnemonicParsing="false" onAction="#editTicketPrice" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Edit">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <Label layoutX="242.0" layoutY="172.0" prefHeight="35.0" prefWidth="186.0" text="Ticket Price:" textFill="#f6d9d9">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+      <Label layoutX="242.0" layoutY="270.0" prefHeight="35.0" prefWidth="180.0" text="Link Ticket Price:" textFill="#f6d9d9">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="242.0" layoutY="378.0" prefHeight="35.0" prefWidth="128.0" text="Card Price:" textFill="#f6d9d9">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="ticketPriceLabel" layoutX="448.0" layoutY="172.0" prefHeight="35.0" prefWidth="83.0" text="100$" textFill="#f6d9d9">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="linkTicketPriceLabel" layoutX="448.0" layoutY="270.0" prefHeight="35.0" prefWidth="83.0" text="100$" textFill="#f6d9d9">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="cardPriceLabel" layoutX="448.0" layoutY="378.0" prefHeight="35.0" prefWidth="83.0" text="100$" textFill="#f6d9d9">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="editLinkTicketPriceBtn" layoutX="531.0" layoutY="268.0" mnemonicParsing="false" onAction="#editLinkTicketPrice" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Edit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="editCardPriceBtn" layoutX="531.0" layoutY="376.0" mnemonicParsing="false" onAction="#editCardPrice" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Edit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="newTicketPriceText" layoutX="531.0" layoutY="170.0" prefHeight="40.0" prefWidth="83.0" promptText="New Price" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="newLinkTicketPriceText" layoutX="531.0" layoutY="268.0" prefHeight="40.0" prefWidth="83.0" promptText="New Price" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="newCardPriceText" layoutX="531.0" layoutY="376.0" prefHeight="40.0" prefWidth="83.0" promptText="New Price" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Button fx:id="saveLinkTicketPriceBtn" layoutX="647.0" layoutY="268.0" mnemonicParsing="false" onAction="#saveLinkTicketPrice" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Confirm" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="saveCardPriceBtn" layoutX="647.0" layoutY="376.0" mnemonicParsing="false" onAction="#saveCardPrice" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Confirm" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="saveTicketPriceBtn" layoutX="647.0" layoutY="170.0" mnemonicParsing="false" onAction="#saveTicketPrice" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Confirm" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="cancelTicketBtn" layoutX="770.0" layoutY="170.0" mnemonicParsing="false" onAction="#cancelTicket" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Cancel" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="cancelLinkTicketBtn" layoutX="770.0" layoutY="266.0" mnemonicParsing="false" onAction="#cancelLinkTicket" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Cancel" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="cancelCardBtn" layoutX="770.0" layoutY="373.0" mnemonicParsing="false" onAction="#cancelCard" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Cancel" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="641.0" layoutY="484.0" mnemonicParsing="false" onAction="#showRequestAnchor" prefHeight="43.0" prefWidth="83.0" style="-fx-text-fill: #f6d9d9; -fx-background-color: transparent; -fx-cursor: hand; -fx-background-radius: 10;" text="here" textFill="#f6d9d9" underline="true">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="242.0" layoutY="492.0" text="See your price update request's status " textFill="#f6d9d9">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="requestAnchor" layoutX="185.0" layoutY="120.0" prefHeight="406.0" prefWidth="710.0" style="-fx-background-color: black; -fx-border-color: #f6d9d9; -fx-border-width: 3;" visible="false">
+         <children>
+            <Button fx:id="hidePurchases" layoutX="667.0" onAction="#hideRequestAnchor" prefHeight="34.0" prefWidth="36.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="X" textFill="#f6d9d9">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <TableView fx:id="priceUpdateRequestTable" layoutX="22.0" layoutY="47.0" prefHeight="330.0" prefWidth="666.0">
+               <columns>
+                  <TableColumn fx:id="requestNOColumn" prefWidth="32.79998779296875" style="-fx-font-size: 15;" text="NO.">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="productColumn" prefWidth="100.79998779296875" style="-fx-font-size: 15;" text="Product Type">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="product" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="dateColumn" prefWidth="124.00003051757812" style="-fx-font-size: 15;" text="Date">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="date" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="currentPriceColumn" prefWidth="141.5999755859375" style="-fx-font-size: 15;" text="Current Price">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="currentPrice" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="newPriceColumn" prefWidth="172.0" style="-fx-font-size: 15;" text="New Price">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="newPrice" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="statusColumn" prefWidth="93.59995117187498" style="-fx-font-size: 15;" text="Status">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="status" />
+                     </cellValueFactory>
+                  </TableColumn>
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>

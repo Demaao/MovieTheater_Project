@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="il.cshaifasweng.OCSFMediatorExample.client.ChargebackPolicyPage">
+    <children>
+        <AnchorPane prefHeight="650.0" prefWidth="180.0" style="-fx-background-color: #f6d9d9;">
+            <children>
+                <ImageView fitHeight="110.0" fitWidth="118.0" layoutX="31.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/cinema.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="53.0" layoutY="125.0" text="Welcome">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="loginBtn" layoutX="27.0" layoutY="492.0" mnemonicParsing="false" onAction="#switchToLoginPage" prefHeight="47.0" prefWidth="99.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="     Login">
+                    <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/login.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="homePageBtn" layoutX="19.0" layoutY="200.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="47.0" prefWidth="142.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Home Page">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="changeHostBtn" layoutX="41.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchToHostPage" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-background-radius: 10;" text="Change Host IP" underline="true" />
+                <Button fx:id="moviesBtn" layoutX="18.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchToMoviesPage" prefHeight="47.0" prefWidth="118.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text=" Movies">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/movie.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="cardsBtn" layoutX="20.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToCardsPage" prefHeight="47.0" prefWidth="102.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Cards">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/cards.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="complaintsBtn" layoutX="13.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToComplaintPage" prefHeight="47.0" prefWidth="152.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="  Complaints">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="37.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/complaint.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="personalAreaBtn" layoutX="-1.0" layoutY="434.0" mnemonicParsing="false" onAction="#switchToPersonalAreaPage" prefHeight="72.0" prefWidth="166.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="My Profile" textAlignment="CENTER">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="58.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/personalArea.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="ChargebackBtn" layoutX="17.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchToChargebackPage" prefHeight="47.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="  Chargeback">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/chargeback.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </AnchorPane>
+        <Button layoutX="763.0" layoutY="560.0" mnemonicParsing="false" onAction="#switchToChargebackPage" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="OK">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <Label fx:id="selectProductText" layoutX="220.0" layoutY="152.0" text="Please select the product that you wish to return" visible="false">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="406.0" layoutY="26.0" prefHeight="30.0" prefWidth="254.0" text="Chargeback Policy" textFill="#f6d9d9">
+            <font>
+                <Font name="Britannic Bold" size="30.0" />
+            </font>
+        </Label>
+        <Label layoutX="209.0" layoutY="60.0" prefHeight="30.0" prefWidth="159.0" text="Dear Customers," textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="209.0" layoutY="85.0" prefHeight="30.0" prefWidth="629.0" text="If you wish to cancel a purchase and return a product, please note the" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="209.0" layoutY="110.0" prefHeight="30.0" prefWidth="451.0" text="following guidelines:" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="209.0" layoutY="135.0" prefHeight="30.0" prefWidth="451.0" text="Tickets:" textFill="#f6d9d9">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="209.0" layoutY="160.0" prefHeight="30.0" prefWidth="649.0" text="• Cancelling 3 hours or more before the movie's screening time grants" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="220.0" layoutY="185.0" prefHeight="30.0" prefWidth="418.0" text="a 100% refund." textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="209.0" layoutY="210.0" prefHeight="30.0" prefWidth="630.0" text="• Cancelling 1 to 3 hours before the movie's screening time grants a" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="220.0" layoutY="235.0" prefHeight="30.0" prefWidth="418.0" text="50% refund." textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="209.0" layoutY="260.0" prefHeight="30.0" prefWidth="659.0" text="• Cancelling less than 1 hour before the movie's screening time will result " textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="220.0" layoutY="285.0" prefHeight="30.0" prefWidth="542.0" text="in no refund; you will be charged the full price." textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="209.0" layoutY="310.0" prefHeight="30.0" prefWidth="451.0" text="Link Tickets:" textFill="#f6d9d9">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="209.0" layoutY="335.0" prefHeight="30.0" prefWidth="620.0" text="• Cancelling 1 hour or more before the link's activating time grants a" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="220.0" layoutY="360.0" prefHeight="30.0" prefWidth="418.0" text="50% refund." textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="209.0" layoutY="385.0" prefHeight="30.0" prefWidth="650.0" text="• Cancelling less than 1 hour before the link's activating time will result" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="223.0" layoutY="410.0" prefHeight="30.0" prefWidth="526.0" text="in no refund; you will be charged the full price." textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="209.0" layoutY="435.0" prefHeight="30.0" prefWidth="451.0" text="Please Note:" textFill="#f6d9d9">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="209.0" layoutY="460.0" prefHeight="30.0" prefWidth="418.0" text="• Cards cannot be returned." textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="209.0" layoutY="485.0" prefHeight="30.0" prefWidth="637.0" text="• Refunds will be processed to the original payment method used for" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="220.0" layoutY="510.0" prefHeight="30.0" prefWidth="418.0" text="the purchase." textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="209.0" layoutY="540.0" prefHeight="30.0" prefWidth="381.0" text="Thank you for your understanding." textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

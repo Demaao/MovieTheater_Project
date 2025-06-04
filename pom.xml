@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>il.cshaifasweng</groupId>
+	<artifactId>OCSFMediatorExample</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>server</module>
+		<module>entities</module>
+		<module>client</module>
+	</modules>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>17</maven.compiler.source> <!-- Ensure this matches your JDK version -->
+		<maven.compiler.target>17</maven.compiler.target> <!-- Ensure this matches your JDK version -->
+		<maven.assemblyPlugin.version>3.3.0</maven.assemblyPlugin.version>
+		<javafx.version>14</javafx.version>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>il.cshaifasweng.OCSFMediatorExample</groupId>
+				<artifactId>entities</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- Ensure these plugins are defined as needed for your project -->
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

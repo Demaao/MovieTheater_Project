@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="il.cshaifasweng.OCSFMediatorExample.client.ComplaintsReportPage">
+    <children>
+        <AnchorPane prefHeight="650.0" prefWidth="180.0" style="-fx-background-color: #f6d9d9;">
+            <children>
+                <ImageView fitHeight="110.0" fitWidth="118.0" layoutX="31.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/cinema.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="53.0" layoutY="125.0" text="Welcome">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="homePageBtn" layoutX="1.0" layoutY="202.0" mnemonicParsing="false" onAction="#switchToHeadManagerPage" prefHeight="47.0" prefWidth="142.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="  Home Page">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="changeHostBtn" layoutX="41.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchToHostPage" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-background-radius: 10;" text="Change Host IP" underline="true" />
+                <Button fx:id="logOutBtn" layoutX="1.0" layoutY="450.0" mnemonicParsing="false" onAction="#requestLogoutFromServer" prefHeight="47.0" prefWidth="118.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="  Log Out">
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/logOut.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button layoutX="1.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchToTicketsReportPage" prefHeight="47.0" prefWidth="162.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="  Tickets Reports">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/report.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="cardAndLinkReportBtn" layoutY="301.0" mnemonicParsing="false" onAction="#switchToCardsAndLinksReportPage" prefHeight="47.0" prefWidth="175.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text=" Card\Link Reports">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/report.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="complaintsReportBtn" layoutX="1.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToComplaintsReportPage" prefHeight="47.0" prefWidth="182.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="Complaints Reports">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/report.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="confirmPricesBtn" layoutX="1.0" layoutY="400.0" mnemonicParsing="false" onAction="#switchToConfirmPricesUpdatesPage" prefHeight="47.0" prefWidth="154.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="  Confirm Prices">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/v.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </AnchorPane>
+        <Label layoutX="339.0" layoutY="31.0" text="Total Complaints Filed" textFill="#f6d9d9">
+            <font>
+                <Font name="Britannic Bold" size="40.0" />
+            </font>
+        </Label>
+        <Label layoutX="192.0" layoutY="94.0" prefHeight="35.0" prefWidth="175.0" text="Choose month:" textFill="#f6d9d9">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <ComboBox fx:id="branchComboBox" layoutX="711.0" layoutY="94.0" onAction="#changeBranch" prefHeight="35.0" prefWidth="150.0" />
+        <BarChart fx:id="complaintsReportGraph" layoutX="192.0" layoutY="140.0" prefHeight="444.0" prefWidth="689.0">
+            <xAxis>
+                <CategoryAxis endMargin="31.0" side="BOTTOM" startMargin="1.0" tickLabelFill="#f6d9d9" tickLabelGap="1.0">
+                    <tickLabelFont>
+                        <Font size="15.0" />
+                    </tickLabelFont>
+                </CategoryAxis>
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" style="-fx-font-color: #f6d9d9;" tickLabelFill="#f6d9d9" upperBound="90.0">
+                    <tickLabelFont>
+                        <Font size="15.0" />
+                    </tickLabelFont>
+                </NumberAxis>
+            </yAxis>
+        </BarChart>
+        <Label fx:id="chooseBranchText" layoutX="536.0" layoutY="94.0" prefHeight="35.0" prefWidth="175.0" text="Choose branch:" textFill="#f6d9d9">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <ComboBox fx:id="monthComboBox" layoutX="360.0" layoutY="96.0" onAction="#changeMonth" prefHeight="35.0" prefWidth="150.0" />
+    </children>
+</AnchorPane>

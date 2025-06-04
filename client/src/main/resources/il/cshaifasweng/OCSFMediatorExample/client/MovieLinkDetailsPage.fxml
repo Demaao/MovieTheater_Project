@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="il.cshaifasweng.OCSFMediatorExample.client.MovieLinkDetailsPage">
+    <children>
+
+        <TextArea fx:id="movieDescriptionTextArea" editable="false" layoutX="198.0" layoutY="78.0" prefHeight="115.0" prefWidth="410.0" style="-fx-control-inner-background: black;            -fx-text-fill: #f6d9d9;            -fx-border-color: black;             -fx-focus-color: transparent;            -fx-faint-focus-color: transparent;            -fx-background-color: black;" wrapText="true">
+            <font>
+                <Font size="14.0" />
+            </font></TextArea>
+
+        <AnchorPane prefHeight="650.0" prefWidth="180.0" style="-fx-background-color: #f6d9d9;">
+            <children>
+                <ImageView fitHeight="110.0" fitWidth="118.0" layoutX="31.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/cinema.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="53.0" layoutY="125.0" text="Welcome">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="loginBtn" layoutX="27.0" layoutY="492.0" mnemonicParsing="false" onAction="#switchToLoginPage" prefHeight="47.0" prefWidth="99.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="     Login">
+                    <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/login.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="homePageBtn" layoutX="19.0" layoutY="200.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="47.0" prefWidth="142.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Home Page">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="changeHostBtn" layoutX="41.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchToHostPage" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-background-radius: 10;" text="Change Host IP" underline="true" />
+                <Button fx:id="bigMoviesBtn" layoutX="18.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchToMoviesPage" prefHeight="47.0" prefWidth="118.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text=" Movies">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/movie.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="bigCardsBtn" layoutX="20.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToCardsPage" prefHeight="47.0" prefWidth="102.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Cards">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/cards.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="complaintsBtn" layoutX="13.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToComplaintPage" prefHeight="47.0" prefWidth="152.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="  Complaints">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="37.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/complaint.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="ChargebackBtn" layoutX="16.0" layoutY="400.0" mnemonicParsing="false" onAction="#switchToChargebackPage" prefHeight="47.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="  Chargeback">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/chargeback.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            <Button fx:id="personalAreaBtn" layoutX="-1.0" layoutY="434.0" mnemonicParsing="false" onAction="#switchToPersonalAreaPage" prefHeight="72.0" prefWidth="166.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="My Profile" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="58.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                     <image>
+                        <Image url="@images/personalArea.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            </children>
+        </AnchorPane>
+
+        <!-- דף פרטי סרט -->
+        <Label fx:id="movieTitleLabel" layoutX="200.0" layoutY="20.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: black;" text="Movie Title" />
+
+        <Label fx:id="directorLabel" layoutX="200.0" layoutY="270.0" style="-fx-font-size: 16px; -fx-text-fill: #f6d9d9;" text="Director : " />
+
+        <Label fx:id="actorsLabel" layoutX="200.0" layoutY="230.0" style="-fx-font-size: 16px; -fx-text-fill: #f6d9d9;" text="Actors : " />
+
+        <Label fx:id="yearLabel" layoutX="200.0" layoutY="310.0" style="-fx-font-size: 16px; -fx-text-fill: #f6d9d9;" text="Year : " />
+
+        <Label fx:id="genreLabel" layoutX="200.0" layoutY="350.0" style="-fx-font-size: 16px; -fx-text-fill: #f6d9d9;" text="Genre : " />
+
+        <Label fx:id="lengthLabel" layoutX="200.0" layoutY="390.0" style="-fx-font-size: 16px; -fx-text-fill: #f6d9d9;" text="Length : " />
+
+        <ImageView fx:id="moviePosterImageView" fitHeight="280.0" fitWidth="210.0" layoutX="658.0" layoutY="78.0" />
+        <Label fx:id="hebtitle" layoutX="684.0" layoutY="30.0" prefHeight="35.0" prefWidth="180.0" textFill="#f6d9d9">
+            <font>
+                <Font size="21.0" />
+            </font>
+        </Label>
+        <Label fx:id="engtitle" layoutX="229.0" layoutY="29.0" prefHeight="17.0" prefWidth="180.0" textFill="#f6d9d9">
+            <font>
+                <Font size="21.0" />
+            </font>
+        </Label>
+        <Label fx:id="bookNowLabel" layoutX="222.0" layoutY="426.0" prefHeight="35.0" prefWidth="127.0" text="Book Now" textFill="#42ef3f">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+
+
+        <ComboBox fx:id="cinemaComboBox" layoutX="229.0" layoutY="480.0" prefWidth="150.0" promptText="Select Cinema" visible="false" />
+        <DatePicker fx:id="chooseDatePicker" layoutX="403.0" layoutY="480.0" prefWidth="150.0" promptText="Select Day" />
+        <ComboBox fx:id="timeComboBox" layoutX="575.0" layoutY="480.0" prefWidth="150.0" promptText="Select Time" />
+        <Button fx:id="purchacebtn" layoutX="774.0" layoutY="544.0" mnemonicParsing="false" onAction="#switchToPurchaseProductsPage" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Purchase">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="cancelbtn" layoutX="658.0" layoutY="544.0" mnemonicParsing="false" onAction="#switchToMoviesPage" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Cancel">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+
+    </children>
+</AnchorPane>

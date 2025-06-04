@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="il.cshaifasweng.OCSFMediatorExample.client.CheckTicketsInCardPage">
+    <children>
+        <AnchorPane prefHeight="650.0" prefWidth="180.0" style="-fx-background-color: #f6d9d9;">
+            <children>
+                <ImageView fitHeight="110.0" fitWidth="118.0" layoutX="31.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/cinema.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="53.0" layoutY="125.0" text="Welcome">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="loginBtn" layoutX="27.0" layoutY="492.0" mnemonicParsing="false" onAction="#switchToLoginPage" prefHeight="47.0" prefWidth="99.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="     Login">
+                    <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/login.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="personalAreaBtn" layoutX="-1.0" layoutY="434.0" mnemonicParsing="false" onAction="#switchToPersonalAreaPage" prefHeight="72.0" prefWidth="166.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="My Profile" textAlignment="CENTER">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="58.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/personalArea.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="homePageBtn" layoutX="19.0" layoutY="200.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="47.0" prefWidth="142.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Home Page">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="changeHostBtn" layoutX="41.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchToHostPage" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-background-radius: 10;" text="Change Host IP" underline="true" />
+                <Button fx:id="moviesBtn" layoutX="18.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchToMoviesPage" prefHeight="47.0" prefWidth="118.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text=" Movies">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/movie.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="cardsBtn" layoutX="20.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToCardsPage" prefHeight="47.0" prefWidth="102.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Cards">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/cards.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="complaintsBtn" layoutX="13.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToComplaintPage" prefHeight="47.0" prefWidth="152.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="  Complaints">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="37.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/complaint.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="ChargebackBtn" layoutX="17.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchToChargebackPage" prefHeight="47.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="  Chargeback">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/chargeback.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </AnchorPane>
+        <Label layoutX="219.0" layoutY="57.0" text="Check how many tickets you have left in your card" textFill="#f6d9d9">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Label fx:id="cardNumLabel" layoutX="220.0" layoutY="118.0" text="Enter your card number" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <TextField fx:id="cardNumText" layoutX="442.0" layoutY="116.0" prefHeight="34.0" prefWidth="210.0" promptText="Card Number">
+            <font>
+                <Font size="15.0" />
+            </font></TextField>
+        <Button fx:id="showCardsBtn" layoutX="672.0" layoutY="113.0" mnemonicParsing="false" onAction="#showCardsTable" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Enter">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <TableView fx:id="CardsTable" layoutX="220.0" layoutY="178.0" prefHeight="79.0" prefWidth="614.0" visible="false">
+            <columns>
+                <TableColumn fx:id="cardNOColumn" prefWidth="139.99993896484375" style="-fx-font-size: 15;" text="Card NO.">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="dateColumn" prefWidth="312.800048828125" style="-fx-font-size: 15;" text="Purchase Time">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="purchaseDate" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="ticketsAmountColumn" prefWidth="160.7999267578125" style="-fx-font-size: 15;" text="Tickets Amount">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="tickets" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <Button fx:id="okBtn" layoutX="672.0" layoutY="278.0" mnemonicParsing="false" onAction="#switchToCardsPage" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="OK" visible="false">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <Label fx:id="forgotCardNumLabel" layoutX="220.0" layoutY="171.0" text="Forgot card number?" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Button fx:id="forgotCardNumBtn" layoutX="372.0" layoutY="164.0" mnemonicParsing="false" onAction="#askForIDNum" prefHeight="43.0" prefWidth="171.0" style="-fx-text-fill: #f6d9d9; -fx-background-color: transparent; -fx-cursor: hand; -fx-background-radius: 10;" text="Click here" underline="true">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Button>
+        <Label fx:id="IDNumLabel" layoutX="219.0" layoutY="118.0" text="Enter your ID number" textFill="#f6d9d9" visible="false">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <TextField fx:id="IDNumText" layoutX="442.0" layoutY="116.0" prefHeight="34.0" prefWidth="210.0" promptText="ID Number" visible="false">
+            <font>
+                <Font size="15.0" />
+            </font></TextField>
+        <Button fx:id="enterBtn" layoutX="672.0" layoutY="113.0" mnemonicParsing="false" onAction="#showAllCardsTable" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Enter" visible="false">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="okBtn2" layoutX="672.0" layoutY="432.0" mnemonicParsing="false" onAction="#switchToCardsPage" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="OK" visible="false">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

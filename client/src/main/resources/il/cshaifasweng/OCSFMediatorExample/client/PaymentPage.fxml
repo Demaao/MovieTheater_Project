@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="il.cshaifasweng.OCSFMediatorExample.client.PaymentPage">
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+    <children>
+        <AnchorPane prefHeight="650.0" prefWidth="180.0" style="-fx-background-color: #f6d9d9;">
+            <children>
+                <ImageView fitHeight="110.0" fitWidth="118.0" layoutX="31.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/cinema.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="53.0" layoutY="125.0" text="Welcome">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="loginBtn" layoutX="27.0" layoutY="492.0" mnemonicParsing="false" onAction="#switchToLoginPage" prefHeight="47.0" prefWidth="99.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="     Login">
+                    <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/login.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="homePageBtn" layoutX="19.0" layoutY="200.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="47.0" prefWidth="142.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Home Page">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="changeHostBtn" layoutX="41.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchToHostPage" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-background-radius: 10;" text="Change Host IP" underline="true" />
+                <Button fx:id="bigMoviesBtn" layoutX="18.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchToMoviesPage" prefHeight="47.0" prefWidth="118.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text=" Movies">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/movie.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="bigCardsBtn" layoutX="20.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToCardsPage" prefHeight="47.0" prefWidth="102.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="   Cards">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/cards.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="complaintsBtn" layoutX="13.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToComplaintPage" prefHeight="47.0" prefWidth="152.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="  Complaints">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="37.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/complaint.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="ChargebackBtn" layoutX="16.0" layoutY="400.0" mnemonicParsing="false" onAction="#switchToChargebackPage" prefHeight="47.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="  Chargeback">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@images/chargeback.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            <Button fx:id="personalAreaBtn" layoutX="-1.0" layoutY="434.0" mnemonicParsing="false" onAction="#switchToPersonalAreaPage" prefHeight="72.0" prefWidth="166.0" style="-fx-text-fill: black; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-size: 15; -fx-background-radius: 10;" text="My Profile" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="58.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                     <image>
+                        <Image url="@images/personalArea.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            </children>
+        </AnchorPane>
+        <Label layoutX="220.0" layoutY="198.0" prefHeight="30.0" prefWidth="99.0" text="Full Name" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <TextField fx:id="fullNameText" layoutX="389.0" layoutY="198.0" prefHeight="34.0" prefWidth="370.0" promptText="Full Name">
+            <font>
+                <Font size="15.0" />
+            </font></TextField>
+        <Label layoutX="220.0" layoutY="134.0" text="Total Price:" textFill="#f6d9d9">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="220.0" layoutY="253.0" prefHeight="30.0" prefWidth="98.0" text="ID Number" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <TextField fx:id="IDNumText" layoutX="389.0" layoutY="253.0" prefHeight="34.0" prefWidth="370.0" promptText="ID Number">
+            <font>
+                <Font size="15.0" />
+            </font></TextField>
+        <Label layoutX="220.0" layoutY="308.0" prefHeight="30.0" prefWidth="144.0" text="Phone Number" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <TextField fx:id="phoneText" layoutX="389.0" layoutY="308.0" prefHeight="34.0" prefWidth="370.0" promptText="Phone Number">
+            <font>
+                <Font size="15.0" />
+            </font></TextField>
+        <TextField fx:id="emailText" layoutX="389.0" layoutY="363.0" prefHeight="34.0" prefWidth="370.0" promptText="Email Address">
+            <font>
+                <Font size="15.0" />
+            </font></TextField>
+        <Label layoutX="220.0" layoutY="363.0" prefHeight="30.0" prefWidth="170.0" text="Email Address" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="220.0" layoutY="418.0" prefHeight="22.0" prefWidth="104.0" text="Credit Card" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="totalPriceLabel" layoutX="361.0" layoutY="134.0" prefHeight="35.0" prefWidth="144.0" text="100$" textFill="#f6d9d9">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <Button fx:id="payBtn" layoutX="669.0" layoutY="487.0" mnemonicParsing="false" onAction="#payForProduct" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Confirm">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <TextField fx:id="creditCardTxt" layoutX="389.0" layoutY="418.0" prefHeight="34.0" prefWidth="370.0" promptText="Credit Card Number">
+            <font>
+                <Font size="15.0" />
+            </font></TextField>
+        <Label layoutX="448.0" layoutY="48.0" text="Payment Details" textFill="#f6d9d9">
+            <font>
+                <Font name="Britannic Bold" size="30.0" />
+            </font>
+        </Label>
+        <Label layoutX="334.0" layoutY="88.0" text="Complete your purchase by providing payment details" textFill="#f6d9d9">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+      <Button fx:id="backBtn" layoutX="389.0" layoutY="487.0" mnemonicParsing="false" onAction="#switchPurchaseProductsPage" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #f6d9d9; -fx-background-radius: 10; -fx-cursor: hand;" text="Back">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>

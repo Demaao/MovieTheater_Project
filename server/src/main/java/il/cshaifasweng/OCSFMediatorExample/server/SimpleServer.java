@@ -28,27 +28,29 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
+// Constructor for the SimpleServer class
 public class SimpleServer extends AbstractServer {
 	private static final SessionFactory sessionFactory = getSessionFactory();
 
 	public SimpleServer(int port) throws Exception {
-		super(port);
-		initializeDatabase(); System.out.println("Server initialized");
+		super(port);                                                                // Initializes the server infrastructure by calling the superclass constructor with the given port
+		initializeDatabase(); System.out.println("Server initialized");             // Sets up the database connection using Hibernate.
 	}
 
+	// Creates and returns a Hibernate SessionFactory for database access.
 	private static SessionFactory getSessionFactory() throws HibernateException {
 		Configuration configuration = new Configuration();
 
+        // Prompt the user to enter the database password at runtime.
 		Scanner input = new Scanner(System.in);
-
 		System.out.println("MySQL Database Name: FinalDatabase");
-
 		System.out.print("Please enter your password: ");
 		String password = input.next();
-
 		input.close();
 
 		configuration.setProperty("hibernate.connection.password", password);
+
+		// Register all entity classes that Hibernate will map to database tables.
 		configuration.addAnnotatedClass(Movie.class);
 		configuration.addAnnotatedClass(SoonMovie.class);
 		configuration.addAnnotatedClass(HomeMovie.class);
@@ -68,15 +70,18 @@ public class SimpleServer extends AbstractServer {
 		configuration.addAnnotatedClass(Card.class);
 		configuration.addAnnotatedClass(Notification.class);
 
+		// Build the Hibernate service registry using the configuration settings.
 		ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 				.applySettings(configuration.getProperties())
 				.build();
 		return configuration.buildSessionFactory(serviceRegistry);
 	}
 
+	// Initializes the database with demo data.
 	private static void initializeDatabase() throws Exception {
 		try (Session session = sessionFactory.openSession()) {
 			session.beginTransaction();
+
 			generateMovies(session);
 			generateSoonMovies(session);
 			generateHomeMovies(session);
@@ -94,6 +99,7 @@ public class SimpleServer extends AbstractServer {
 			generateHomeMoviePurchases(session);
 			generateCards(session);
 			generateNotifications(session);
+
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -536,8 +542,8 @@ public class SimpleServer extends AbstractServer {
 	}
 
 	private static void generateHomeMovies(Session session) throws Exception {
-		byte[][] homeImages = new byte[6][];  // מערך לאחסון התמונות של סרטי הבית
-		for (int i = 1; i <= 6; i++) {       //טוענים את התמונות ושומרים אותם במערך
+		byte[][] homeImages = new byte[6][];
+		for (int i = 1; i <= 6; i++) {
 			homeImages[i - 1] = loadImageFromFile(String.format("forHome_images/%d.jpg", i));
 		}
 
@@ -676,181 +682,92 @@ public class SimpleServer extends AbstractServer {
 		Hall hall29 = new Hall(3, 6, 18, "29",eilatCinema);
 		session.save(hall29);
 
-
 		session.flush();
 	}
 
 	private static void generateScreenings(Session session) throws Exception {
+		// Load branches
 		Branch haifaCinema = session.get(Branch.class, 1);
 		Branch telAvivCinema = session.get(Branch.class, 2);
 		Branch eilatCinema = session.get(Branch.class, 3);
 		Branch karmielCinema = session.get(Branch.class, 4);
 		Branch jerusalemCinema = session.get(Branch.class, 5);
 
-		Movie movie1 = session.get(Movie.class, 1);
-		Movie movie2 = session.get(Movie.class, 2);
-		Movie movie3 = session.get(Movie.class, 3);
-		Movie movie4 = session.get(Movie.class, 4);
-		Movie movie5 = session.get(Movie.class, 5);
-		Movie movie6 = session.get(Movie.class, 6);
-		Movie movie7 = session.get(Movie.class, 7);
-		Movie movie8 = session.get(Movie.class, 8);
-		Movie movie9 = session.get(Movie.class, 9);
-		Movie movie10 = session.get(Movie.class, 10);
+		// Load movies
+		List<Movie> movies = new ArrayList<>();
+		for (int i = 1; i <= 10; i++) {
+			movies.add(session.get(Movie.class, i));
+		}
 
-		List<LocalDateTime> screeningTimes = Arrays.asList(
-				LocalDateTime.of(2024, 9, 26, 17, 00),
-				LocalDateTime.of(2024, 9, 26, 20, 00),
-				LocalDateTime.of(2024, 9, 26, 23, 00),
-				LocalDateTime.of(2024, 9, 27, 16, 30),
-				LocalDateTime.of(2024, 9, 27, 19, 30),
-				LocalDateTime.of(2024, 9, 27, 23, 00),
-				LocalDateTime.of(2024, 9, 28, 17, 00),
-				LocalDateTime.of(2024, 9, 28, 20, 00),
-				LocalDateTime.of(2024, 9, 28, 23, 00),
-				LocalDateTime.of(2024, 9, 29, 17, 00),
-				LocalDateTime.of(2024, 9, 29, 20, 00),
-				LocalDateTime.of(2024, 9, 29, 23, 00),
-				LocalDateTime.of(2024, 9, 30, 17, 00),
-				LocalDateTime.of(2024, 9, 30, 20, 30),
-				LocalDateTime.of(2024, 9, 30, 23, 30),
-				LocalDateTime.of(2024, 10, 1, 17, 00),
-				LocalDateTime.of(2024, 10, 1, 20, 30),
-				LocalDateTime.of(2024, 10, 1, 23, 30),
-				LocalDateTime.of(2024, 10, 2, 17, 00),
-				LocalDateTime.of(2024, 10, 2, 20, 00),
-				LocalDateTime.of(2024, 10, 2, 23, 00)
-		);
+		// Load halls
+		List<Hall> halls = new ArrayList<>();
+		for (int i = 1; i <= 29; i++) {
+			halls.add(session.get(Hall.class, i));
+		}
 
-		Hall hall1_ = session.get(Hall.class,1);
-		Hall hall2_ = session.get(Hall.class,2);
-		Hall hall3_ = session.get(Hall.class,3);
-		Hall hall4_ = session.get(Hall.class,4);
-		Hall hall5_ = session.get(Hall.class,5);
-		Hall hall6_ = session.get(Hall.class,6);
-		Hall hall7_ =session.get(Hall.class,7);
-		Hall hall8_ =session.get(Hall.class,8);
-		Hall hall9_ = session.get(Hall.class,9);
-		Hall hall10_ = session.get(Hall.class,10);
-		Hall hall11_ = session.get(Hall.class,11);
-		Hall hall12_ =session.get(Hall.class,12);
-		Hall hall13_ =session.get(Hall.class,13);
-		Hall hall14_ = session.get(Hall.class,14);
-		Hall hall15_ = session.get(Hall.class,15);
-		Hall hall16_ = session.get(Hall.class,16);
-		Hall hall17_ = session.get(Hall.class,17);
-		Hall hall18_ = session.get(Hall.class,18);
-		Hall hall19_ = session.get(Hall.class,19);
-		Hall hall20_ =session.get(Hall.class,20);
-		Hall hall21_ = session.get(Hall.class,21);
-		Hall hall22_ =session.get(Hall.class,22);
-		Hall hall23_ =session.get(Hall.class,23);
-		Hall hall24_ =session.get(Hall.class,24);
-		Hall hall25_ = session.get(Hall.class,25);
-		Hall hall26_ = session.get(Hall.class,26);
-		Hall hall27_ =session.get(Hall.class,27);
-		Hall hall28_ = session.get(Hall.class,28);
-		Hall hall29_ = session.get(Hall.class,29);
+		// Generate screening times for cinema movies
+		List<LocalDateTime> screeningTimes = new ArrayList<>();
+		LocalDateTime baseDate = LocalDateTime.now().plusDays(1);
+		for (int i = 0; i < 7; i++) {
+			screeningTimes.add(baseDate.plusDays(i).withHour(17).withMinute(0));
+			screeningTimes.add(baseDate.plusDays(i).withHour(20).withMinute(0));
+			screeningTimes.add(baseDate.plusDays(i).withHour(23).withMinute(0));
+		}
 
+		// Movie -> { Branch, hall index }
+		Object[][] assignments = {
+				{0, new Object[][]{{jerusalemCinema, 0}, {telAvivCinema, 5}, {eilatCinema, 11}}},
+				{1, new Object[][]{{haifaCinema, 1}, {jerusalemCinema, 6}, {eilatCinema, 12}}},
+				{2, new Object[][]{{karmielCinema, 16}, {jerusalemCinema, 21}, {telAvivCinema, 14}}},
+				{3, new Object[][]{{karmielCinema, 17}, {haifaCinema, 22}}},
+				{4, new Object[][]{{telAvivCinema, 18}, {eilatCinema, 23}}},
+				{5, new Object[][]{{haifaCinema, 2}, {karmielCinema, 7}, {eilatCinema, 13}}},
+				{6, new Object[][]{{jerusalemCinema, 3}, {telAvivCinema, 8}}},
+				{7, new Object[][]{{haifaCinema, 4}, {karmielCinema, 9}, {jerusalemCinema, 15}}},
+				{8, new Object[][]{{telAvivCinema, 19}, {eilatCinema, 24}, {karmielCinema, 10}, {jerusalemCinema, 26}}},
+				{9, new Object[][]{{karmielCinema, 20}, {jerusalemCinema, 25}, {haifaCinema, 27}, {eilatCinema, 28}}}
+		};
 
 		for (LocalDateTime time : screeningTimes) {
-			movie1.addScreening(time, jerusalemCinema, hall1_);
-			movie1.addScreening(time, telAvivCinema,hall6_);
-			movie1.addScreening(time, eilatCinema,hall12_);
-
-			movie2.addScreening(time, haifaCinema, hall2_);
-			movie2.addScreening(time, jerusalemCinema, hall7_);
-			movie2.addScreening(time, eilatCinema, hall13_);
-
-			movie3.addScreening(time, karmielCinema,hall17_);
-			movie3.addScreening(time, jerusalemCinema,hall22_);
-			movie3.addScreening(time, telAvivCinema,hall15_);
-
-
-			movie4.addScreening(time, karmielCinema,hall18_);
-			movie4.addScreening(time, haifaCinema,hall23_);
-
-			movie5.addScreening(time, telAvivCinema,hall19_);
-			movie5.addScreening(time, eilatCinema,hall24_);
-
-			movie6.addScreening(time, haifaCinema, hall3_);
-			movie6.addScreening(time, karmielCinema, hall8_);
-			movie6.addScreening(time, eilatCinema, hall14_);
-
-			movie7.addScreening(time, jerusalemCinema, hall4_);
-			movie7.addScreening(time, telAvivCinema, hall9_);
-
-			movie8.addScreening(time, haifaCinema, hall5_);
-			movie8.addScreening(time, karmielCinema, hall10_);
-			movie8.addScreening(time, jerusalemCinema, hall16_);
-
-			movie9.addScreening(time, telAvivCinema,hall20_);
-			movie9.addScreening(time, eilatCinema,hall25_);
-			movie9.addScreening(time, karmielCinema, hall11_);
-			movie9.addScreening(time, jerusalemCinema,hall27_);
-
-			movie10.addScreening(time, karmielCinema,hall21_);
-			movie10.addScreening(time, jerusalemCinema,hall26_);
-			movie10.addScreening(time, haifaCinema,hall28_);
-			movie10.addScreening(time, eilatCinema,hall29_);
-
+			for (Object[] entry : assignments) {
+				int movieIdx = (int) entry[0];
+				Object[][] screenings = (Object[][]) entry[1];
+				for (Object[] s : screenings) {
+					Branch branch = (Branch) s[0];
+					int hallIdx = (int) s[1];
+					movies.get(movieIdx).addScreening(time, branch, halls.get(hallIdx));
+				}
+			}
 		}
 
-		List<Movie> movies = Arrays.asList(movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8, movie9, movie10);
-		for (Movie movie : movies) {
-			session.save(movie);
-		}
+		movies.forEach(session::save);
 		session.flush();
 
-		Movie movie14 = session.get(Movie.class, 14);
-		Movie movie15 = session.get(Movie.class, 15);
-		Movie movie16 = session.get(Movie.class, 16);
-		Movie movie17 = session.get(Movie.class, 17);
-		Movie movie18 = session.get(Movie.class, 18);
-		Movie movie19 = session.get(Movie.class, 19);
-
-
-		List<LocalDateTime> HomeScreeningTimes = Arrays.asList(
-				LocalDateTime.of(2024, 9, 26, 15, 00),
-				LocalDateTime.of(2024, 9, 26, 19, 00),
-				LocalDateTime.of(2024, 9, 26, 23, 00),
-				LocalDateTime.of(2024, 9, 27, 15, 00),
-				LocalDateTime.of(2024, 9, 27, 19, 00),
-				LocalDateTime.of(2024, 9, 27, 23, 00),
-				LocalDateTime.of(2024, 9, 28, 15, 00),
-				LocalDateTime.of(2024, 9, 28, 19, 00),
-				LocalDateTime.of(2024, 9, 28, 23, 00),
-				LocalDateTime.of(2024, 9, 29, 15, 00),
-				LocalDateTime.of(2024, 9, 29, 19, 00),
-				LocalDateTime.of(2024, 9, 29, 23, 00),
-				LocalDateTime.of(2024, 9, 30, 15, 00),
-				LocalDateTime.of(2024, 9, 30, 19, 00),
-				LocalDateTime.of(2024, 9, 30, 23, 00),
-				LocalDateTime.of(2024, 10, 1, 15, 00),
-				LocalDateTime.of(2024, 10, 1, 19, 00),
-				LocalDateTime.of(2024, 10, 1, 23, 00),
-				LocalDateTime.of(2024, 10, 2, 15, 00),
-				LocalDateTime.of(2024, 10, 2, 19, 00),
-				LocalDateTime.of(2024, 10, 2, 23, 00)
-		);
-		for (LocalDateTime time : HomeScreeningTimes) {
-			movie14.addScreening(time, null,null);
-			movie15.addScreening(time, null,null);
-			movie16.addScreening(time, null,null);
-			movie17.addScreening(time, null,null);
-			movie18.addScreening(time, null,null);
-			movie19.addScreening(time, null,null);
+		// Load and assign home movie screenings
+		List<Movie> homeMovies = new ArrayList<>();
+		for (int i = 14; i <= 19; i++) {
+			homeMovies.add(session.get(Movie.class, i));
 		}
 
-		session.save(movie14);
-		session.save(movie15);
-		session.save(movie16);
-		session.save(movie17);
-		session.save(movie18);
-		session.save(movie19);
+		List<LocalDateTime> homeScreeningTimes = new ArrayList<>();
+		LocalDateTime baseHomeDate = LocalDateTime.now().plusDays(1);
+		for (int i = 0; i < 7; i++) {
+			homeScreeningTimes.add(baseHomeDate.plusDays(i).withHour(15).withMinute(0));
+			homeScreeningTimes.add(baseHomeDate.plusDays(i).withHour(19).withMinute(0));
+			homeScreeningTimes.add(baseHomeDate.plusDays(i).withHour(23).withMinute(0));
+		}
+
+		for (LocalDateTime time : homeScreeningTimes) {
+			for (Movie movie : homeMovies) {
+				movie.addScreening(time, null, null);
+				session.save(movie);
+			}
+		}
 
 		session.flush();
 	}
+
+
 
 	private static List<Purchase> getAllPurchases(Session session) throws Exception {
 		CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -878,10 +795,6 @@ public class SimpleServer extends AbstractServer {
 			List<Purchase> allPurchases = new ArrayList<>(linkPurchases);
 			allPurchases.addAll(cardPurchases);
 
-			// Debugging: print the results
-			/*for (Purchase purchase : allPurchases) {
-				System.out.println("Purchase: " + purchase.getPurchaseDescription() + ", Product Type: " + purchase.getProductType() + ", Date: " + purchase.getPurchaseDate());
-			}*/
 
 			return allPurchases;  // Return combined purchases
 		} catch (Exception e) {

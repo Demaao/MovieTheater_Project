@@ -71,9 +71,6 @@ public class MovieLinkDetailsPage {
     private Button purchaseCardBtn;
 
 
-    /*public static void setSelectedMovie(Movie movie) {
-        selectedMovie = movie;
-    }*/
 
     @FXML
     public void initialize() {
@@ -91,7 +88,7 @@ public class MovieLinkDetailsPage {
             hebtitle.setText(MovieDetailsPage.selectedMovie.getHebtitle());
             engtitle.setText(MovieDetailsPage.selectedMovie.getEngtitle());
 
-            requestScreeningTimesFromServer(); // ××§×©× ××©×¨×ª ××§×× ××ª ××× × ×××§×¨× ×
+            requestScreeningTimesFromServer();
 
             chooseDatePicker.setDayCellFactory(picker -> new DateCell() {
                 @Override
@@ -111,7 +108,6 @@ public class MovieLinkDetailsPage {
                 chooseDatePicker.setLayoutX(230.0);
                 timeComboBox.setLayoutX(430.0);
 
-                //×× ×××¨× × ×¡×¨× ×××ª ×× ×× ×× × ×¢×××¨×× ××¢××× ××ª ××ª××¨×××× ×××©×¢××ª ×× ××¡×¨×× ××××ª ××× ××ª× ×§×× ××¢
                 chooseDatePicker.setOnAction(event -> updateAvailableTimes(MovieDetailsPage.selectedMovie.getScreenings()));
 
             }
@@ -131,7 +127,6 @@ public class MovieLinkDetailsPage {
                 chooseDatePicker.setLayoutX(430.0);
                 timeComboBox.setLayoutX(630.0);
 
-                //×× ×××¨× × ×¡×¨× ×©×××¦× ××××ª ×§×× ××¢ ×× ×× ×× × ×¢×××¨×× ××¢××× ××××§×¡ ××××× ×¡× ××¤×× ××× × ××¦××××××ª×× ××¢××× ×× ××ª ××ª×××¨××× ×××©×¢××ª
                 cinemaComboBox.setOnAction(event -> updateAvailableDays(null));
                 chooseDatePicker.setOnAction(event -> updateAvailableTimes(null));
             }
@@ -152,8 +147,8 @@ public class MovieLinkDetailsPage {
     public void onUpdateScreeningTimes(UpdateScreeningTimesEvent event) {
         List<Screening> screenings = event.getScreenings();
         updateUIWithScreeningTimes(screenings);
-        updateAvailableDays(screenings); // ×¨×¢× ×× ××××× ××××× ××
-        updateAvailableTimes(screenings); // ×¨×¢× ×× ××©×¢××ª ××××× ××ª
+        updateAvailableDays(screenings);
+        updateAvailableTimes(screenings);
     }
 
     private void updateUIWithScreeningTimes(List<Screening> screenings) {
@@ -162,15 +157,15 @@ public class MovieLinkDetailsPage {
         chooseDatePicker.setValue(null);
 
         if (MovieDetailsPage.selectedMovie instanceof HomeMovie) {
-            updateAvailableDays(screenings);  //  ×× ×××××¨ ××¡×¨× ×××ª×, ××× ×¦××¨× ××¢××× ××ª  ××ª× ××§××× ××¢ × ×¢×××¨ ××¢××× ××ª  ××¢×××× ×××××
+            updateAvailableDays(screenings);
         } else {
-            // ×§×××ª ×¨×©××× ×©× ××ª× ×§××× ××¢ ××ª×× ×¨×©×××ª ×××§×¨× ××ª
+
             Set<String> availableCinemas = screenings.stream()
-                    .filter(screening -> screening.getBranch() != null)  // ××××× ×©-Branch ××× × null
+                    .filter(screening -> screening.getBranch() != null)
                     .map(screening -> screening.getBranch().getName())
                     .collect(Collectors.toSet());
 
-            // ×××¡×¤×ª ××ª× ××§××× ××¢ ×-ComboBox
+
             cinemaComboBox.getItems().addAll(availableCinemas);
 
             cinemaComboBox.setOnAction(event -> updateAvailableDays(screenings));
@@ -179,15 +174,15 @@ public class MovieLinkDetailsPage {
 
 
     private void updateAvailableDays(List<Screening> screenings) {
-        timeComboBox.getItems().clear(); ///////////////////////////////////////////////
-        chooseDatePicker.setValue(null); ///////////////////////////////////////////////
+        timeComboBox.getItems().clear();
+        chooseDatePicker.setValue(null);
 
         if (screenings == null || screenings.isEmpty()) {
             screenings = MovieDetailsPage.selectedMovie.getScreenings();
         }
 
         if (MovieDetailsPage.selectedMovie instanceof HomeMovie) {
-            // ×¢×××× ××××× ××× ××© ××§×¨× ××ª ××¡×¨×× ××××ª
+
             Set<LocalDate> availableDays = screenings.stream()
                     .filter(screening -> screening.getBranch() == null)
                     .map(screening -> screening.getScreeningTime().toLocalDate())
@@ -216,7 +211,7 @@ public class MovieLinkDetailsPage {
                     @Override
                     public void updateItem(LocalDate date, boolean empty) {
                         super.updateItem(date, empty);
-                        if (!availableDays.contains(date) || date.isBefore(LocalDate.of(2024, 9, 24))) {
+                        if (!availableDays.contains(date) || date.isBefore(LocalDate.now())) {
                             setDisable(true);
                         }
                     }
@@ -224,12 +219,12 @@ public class MovieLinkDetailsPage {
             }
         }
 
-        // ×¢××××× ××× × ×××§×¨× × ×¢× ×¤× ×××× ×©× ×××¨
         List<Screening> finalScreenings = screenings;
         chooseDatePicker.setOnAction(event -> updateAvailableTimes(finalScreenings));
     }
 
     private void updateAvailableTimes(List<Screening> screenings) {
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
         timeComboBox.getItems().clear();
         timeComboBox.setPromptText("Select Time");
 
@@ -249,12 +244,15 @@ public class MovieLinkDetailsPage {
                         .collect(Collectors.toList());
 
                 timeComboBox.getItems().addAll(
-                        availableTimes.stream().map(LocalTime::toString).collect(Collectors.toList())
+                        availableTimes.stream()
+                                .map(time -> time.format(timeFormatter))
+                                .collect(Collectors.toList())
                 );
             }
         } else {
             // Handle Cinema screenings
             String selectedCinema = cinemaComboBox.getValue();
+
             if (selectedCinema != null && selectedDay != null) {
                 List<LocalTime> availableTimes = screenings.stream()
                         .filter(screening -> screening.getBranch() != null)
@@ -264,7 +262,9 @@ public class MovieLinkDetailsPage {
                         .collect(Collectors.toList());
 
                 timeComboBox.getItems().addAll(
-                        availableTimes.stream().map(LocalTime::toString).collect(Collectors.toList())
+                        availableTimes.stream()
+                                .map(time -> time.format(timeFormatter))
+                                .collect(Collectors.toList())
                 );
             }
         }
@@ -331,7 +331,7 @@ public class MovieLinkDetailsPage {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
                 DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                 LocalTime time = LocalTime.parse(timeComboBox.getValue(), formatter);
-                LocalDateTime dateTime = LocalDateTime.of(date, time);
+                LocalDateTime dateTime = LocalDateTime.of(date, time).withSecond(0).withNano(0);
                 Screening screening = new Screening(dateTime, MovieDetailsPage.selectedMovie, null);
                 // Split the movie length into hours and minutes
                 String[] parts = MovieDetailsPage.selectedMovie.getLength().split(" ");

@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -279,6 +280,9 @@ public class MovieDetailsPage {
     }
 
     private void updateAvailableTimes(List<Screening> screenings) {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+
         timeComboBox.getItems().clear();
         timeComboBox.setPromptText("Select Time");
 
@@ -313,8 +317,9 @@ public class MovieDetailsPage {
                         .collect(Collectors.toList());
 
                 timeComboBox.getItems().addAll(
-                        availableTimes.stream().map(LocalTime::toString).collect(Collectors.toList())
+                        availableTimes.stream().map(time -> time.format(formatter)).collect(Collectors.toList())
                 );
+
             }
         }
     }

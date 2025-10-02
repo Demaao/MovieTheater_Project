@@ -1,4 +1,4 @@
-# MovieTheater Project – README
+# MovieTheater Project 
 
 ## Overview
 
